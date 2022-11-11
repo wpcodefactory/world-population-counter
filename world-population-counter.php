@@ -1,16 +1,13 @@
 <?php
 /*
 Plugin Name: World Population Counter
-Plugin URI: https://algoritmika.com
+Plugin URI: https://wpfactory.com
 Description: World population counter.
-Version: 1.2.0
-Author: Algoritmika Ltd
-Author URI: https://algoritmika.com
+Version: 1.3.0-dev
+Author: WPFactory
+Author URI: https://wpfactory.com
 Text Domain: world-population-counter
 Domain Path: /langs
-Copyright: © 2020 Algoritmika Ltd.
-License: GNU General Public License v3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -32,7 +29,7 @@ final class Alg_World_Population_Counter {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.2.0';
+	public $version = '1.3.0-dev-20221111-2227';
 
 	/**
 	 * @var   Alg_World_Population_Counter The single instance of the class
