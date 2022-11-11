@@ -1,0 +1,56 @@
+#: includes/admin/class-alg-settings-world-population-counter.php:44
+msgid "World Population Counter Settings"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:45
+#: includes/admin/class-alg-settings-world-population-counter.php:62
+#: includes/admin/class-alg-settings-world-population-counter.php:162
+#: includes/class-alg-widget-world-population-counter.php:27
+msgid "World Population Counter"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:88
+#: world-population-counter.php:95
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:94
+msgid "Update rate (seconds)"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:101
+msgid "Script type"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:108
+msgid "CSS style"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:115
+msgid "CSS class"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:161
+#, php-format
+msgid "Counter can be added via: %s widget, %s shortcode or %s PHP function."
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:192
+msgid "AJAX"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:193
+msgid "Simple JS"
+msgstr ""
+
+#: includes/admin/class-alg-settings-world-population-counter.php:195
+msgid "AJAX is more accurate. Simple JS requires less resources."
+msgstr ""
+
+#: includes/class-alg-widget-world-population-counter.php:25
+msgid "World Population Counter Widget"
+msgstr ""
+
+#: includes/class-alg-widget-world-population-counter.php:57
+msgid "Title:"
+msgstr ""
