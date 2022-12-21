@@ -3,15 +3,17 @@ Contributors: wpcodefactory, algoritmika, anbinder
 Tags: world, population, counter, clock
 Requires at least: 4.4
 Tested up to: 6.1
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Add live world population counter to your site.
+Adds live world population counter to your site.
 
 == Description ==
 
-**World Population Counter** plugin lets you add live world population counter (i.e. world population clock) to your site.
+**World Population Counter** is a lightweight plugin that lets you add live world population counter (i.e., world population clock) to your site.
+
+### &#9989; Main Features ###
 
 Counter can be added via:
 
@@ -19,7 +21,7 @@ Counter can be added via:
 * `[alg_world_population_counter]` **shortcode**,
 * `echo alg_world_population_counter();` **PHP function**.
 
-= Feedback =
+### &#128472; Feedback ###
 
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
 
@@ -31,7 +33,11 @@ Counter can be added via:
 
 == Changelog ==
 
-= 1.3.0 - 11/11/2022 =
+= 1.3.0 - 21/12/2022 =
+* Dev - Population clock data updated.
+* Dev - The plugin is initialized on the `plugins_loaded` action now.
+* Dev - Localisation - The `load_plugin_textdomain()` function moved to the `init` action.
+* Dev - Code refactoring.
 * Tested up to: 6.1.
 * Readme.txt updated.
 * Deploy script added.

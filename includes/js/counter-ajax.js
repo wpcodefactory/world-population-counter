@@ -3,6 +3,7 @@
  *
  * @version 1.0.0
  * @since   1.0.0
+ *
  * @author  Algoritmika Ltd.
  */
 
@@ -16,12 +17,12 @@ if ( amount !== null ) {
 		var data = {
 			'action': 'alg_population_counter',
 		};
-		jQuery.post( alg_data_counter.ajax_url, data, function( response ) {
+		jQuery.post( alg_data_counter.ajax_url, data, function ( response ) {
 			amount.innerText = alg_number_format( response, 0, '', ',' );
 		} );
 	}
 
-	setInterval( function() {
+	setInterval( function () {
 		update();
 	}, update_ms );
 }

@@ -2,12 +2,13 @@
 /**
  * World Population Counter - Widget
  *
- * @version 1.1.0
+ * @version 1.3.0
  * @since   1.0.0
+ *
  * @author  Algoritmika Ltd.
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_Widget_World_Population_Counter' ) ) :
 
@@ -18,6 +19,8 @@ class Alg_Widget_World_Population_Counter extends WP_Widget {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
+	 * @todo    [now] (dev) check sanitization, etc.
 	 */
 	function __construct() {
 		$widget_ops = array(
@@ -32,6 +35,7 @@ class Alg_Widget_World_Population_Counter extends WP_Widget {
 	 *
 	 * @version 1.1.0
 	 * @since   1.0.0
+	 *
 	 * @param   array $args
 	 * @param   array $instance
 	 */
@@ -49,6 +53,7 @@ class Alg_Widget_World_Population_Counter extends WP_Widget {
 	 *
 	 * @version 1.1.0
 	 * @since   1.0.0
+	 *
 	 * @param   array $instance The widget options
 	 */
 	function form( $instance ) {
@@ -64,6 +69,7 @@ class Alg_Widget_World_Population_Counter extends WP_Widget {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
+	 *
 	 * @param   array $new_instance The new options
 	 * @param   array $old_instance The previous options
 	 */
@@ -72,20 +78,7 @@ class Alg_Widget_World_Population_Counter extends WP_Widget {
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		return $instance;
 	}
+
 }
 
 endif;
-
-if ( ! function_exists( 'register_alg_widget_world_population_counter' ) ) {
-	/**
-	 * Register Alg_Widget_World_Population_Counter widget.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 */
-	function register_alg_widget_world_population_counter() {
-		register_widget( 'Alg_Widget_World_Population_Counter' );
-	}
-}
-
-add_action( 'widgets_init', 'register_alg_widget_world_population_counter' );

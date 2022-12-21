@@ -3,10 +3,11 @@
  *
  * @version 1.0.0
  * @since   1.0.0
+ *
  * @author  Algoritmika Ltd.
  */
 
-function alg_number_format( number, decimals, decPoint, thousandsSep ) { // eslint-disable-line camelcase
+function alg_number_format( number, decimals, decPoint, thousandsSep ) {
 	number   = ( number + '' ).replace(/[^0-9+\-Ee.]/g, '' )
 	var n    = ! isFinite( +number )   ? 0 : +number
 	var prec = ! isFinite( +decimals ) ? 0 : Math.abs( decimals )
@@ -14,7 +15,7 @@ function alg_number_format( number, decimals, decPoint, thousandsSep ) { // esli
 	var dec  = ( typeof decPoint     === 'undefined') ? '.' : decPoint
 	var s    = ''
 
-	var toFixedFix = function( n, prec ) {
+	var toFixedFix = function ( n, prec ) {
 		var k = Math.pow( 10, prec )
 		return '' + ( Math.round( n * k ) / k )
 			.toFixed( prec )

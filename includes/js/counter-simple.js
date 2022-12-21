@@ -3,6 +3,7 @@
  *
  * @version 1.0.0
  * @since   1.0.0
+ *
  * @author  Algoritmika Ltd.
  */
 
@@ -17,7 +18,7 @@ if ( amount !== null ) {
 		amount.innerText = alg_number_format( Math.round( current ), 0, '', ',' );
 	}
 
-	setInterval( function() {
+	setInterval( function () {
 		current += rate;
 		update();
 	}, update_ms );
