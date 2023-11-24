@@ -3,7 +3,7 @@
 Plugin Name: World Population Counter
 Plugin URI: https://wpfactory.com
 Description: Adds live world population counter to your site.
-Version: 1.3.0
+Version: 1.3.1
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: world-population-counter
@@ -12,7 +12,7 @@ Domain Path: /langs
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'ALG_WORLD_POPULATION_COUNTER_VERSION' ) || define( 'ALG_WORLD_POPULATION_COUNTER_VERSION', '1.3.0' );
+defined( 'ALG_WORLD_POPULATION_COUNTER_VERSION' ) || define( 'ALG_WORLD_POPULATION_COUNTER_VERSION', '1.3.1' );
 
 defined( 'ALG_WORLD_POPULATION_COUNTER_FILE' ) || define( 'ALG_WORLD_POPULATION_COUNTER_FILE', __FILE__ );
 
