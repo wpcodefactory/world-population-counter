@@ -3,7 +3,7 @@ Contributors: wpcodefactory, anbinder, karzin, omardabbas, kousikmukherjeeli
 Tags: world, population, counter, clock
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,6 +32,12 @@ Counter can be added via:
 3. Start by visiting plugin settings at "Settings > World Population Counter".
 
 == Changelog ==
+
+= 1.3.2 - 24/11/2023 =
+* Update changelog.
+
+= 1.3.1 - 24/11/2023 =
+* Tested up to: 6.4.
 
 = 1.3.0 - 21/12/2022 =
 * Dev - Population clock data updated.
