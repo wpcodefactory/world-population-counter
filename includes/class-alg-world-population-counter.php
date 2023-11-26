@@ -2,7 +2,7 @@
 /**
  * World Population Counter - Main Class
  *
- * @version 1.3.0
+ * @version 1.4.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -126,7 +126,7 @@ final class Alg_World_Population_Counter {
 	 * @version 1.3.0
 	 * @since   1.0.0
 	 *
-	 * @todo    [now] (dev) cleanup & minify 3 x JS files
+	 * @todo    (dev) cleanup & minify 3 x JS files
 	 */
 	function enqueue_styles_and_scripts() {
 
@@ -134,7 +134,7 @@ final class Alg_World_Population_Counter {
 		wp_enqueue_script( 'alg-counter-number-format', $this->plugin_url() . '/includes/js/number-format.js', array( 'jquery' ), $this->version, true );
 
 		// Population now
-		$population_now  = $this->get_population_now();
+		$population_now = $this->get_population_now();
 
 		// Options
 		$options = get_option( 'world_population_counter_options', array() );
@@ -217,21 +217,22 @@ final class Alg_World_Population_Counter {
 		return untrailingslashit( plugin_dir_path( ALG_WORLD_POPULATION_COUNTER_FILE ) );
 	}
 
-
 	/**
 	 * get_population_now.
 	 *
-	 * @version 1.3.0
+	 * @version 1.4.0
 	 * @since   1.0.0
 	 */
 	function get_population_now() {
 
-		$starting_time   = 1671224926;
-		$starting_point  = 8005781833;
-		$rate_per_second = 2.3;
+		$options         = get_option( 'world_population_counter_options', array() );
+
+		$starting_time   = ( isset( $options['starting_time'] )   && '' !== $options['starting_time']   ? $options['starting_time']   : '2023-11-24' );
+		$starting_point  = ( isset( $options['starting_point'] )  && '' !== $options['starting_point']  ? $options['starting_point']  : 8074720000 );
+		$rate_per_second = ( isset( $options['rate_per_second'] ) && '' !== $options['rate_per_second'] ? $options['rate_per_second'] : 2.329 );
 
 		return array(
-			'population_now'  => $starting_point + round( ( gmdate( 'U' ) - $starting_time ) * $rate_per_second ),
+			'population_now'  => $starting_point + round( ( gmdate( 'U' ) - strtotime( $starting_time ) ) * $rate_per_second ),
 			'rate_per_second' => $rate_per_second,
 		);
 

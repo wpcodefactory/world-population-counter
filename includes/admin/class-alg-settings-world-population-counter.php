@@ -2,7 +2,7 @@
 /**
  * World Population Counter - Settings
  *
- * @version 1.3.0
+ * @version 1.4.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -15,7 +15,7 @@ if ( ! class_exists( 'Alg_Settings_World_Population_Counter' ) ) :
 class Alg_Settings_World_Population_Counter {
 
 	/**
-	 * Holds the values to be used in the fields callbacks
+	 * Holds the values to be used in the fields callbacks.
 	 *
 	 * @since   1.0.0
 	 */
@@ -29,7 +29,7 @@ class Alg_Settings_World_Population_Counter {
 	 *
 	 * @see     https://codex.wordpress.org/Creating_Options_Pages
 	 *
-	 * @todo    [now] (dev) check sanitization, etc.
+	 * @todo    (dev) check sanitization, etc.
 	 */
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
@@ -43,7 +43,6 @@ class Alg_Settings_World_Population_Counter {
 	 * @since   1.0.0
 	 */
 	function add_plugin_page() {
-		// This page will be under "Settings"
 		add_options_page(
 			__( 'World Population Counter Settings', 'world-population-counter' ),
 			__( 'World Population Counter', 'world-population-counter' ),
@@ -56,17 +55,15 @@ class Alg_Settings_World_Population_Counter {
 	/**
 	 * Options page callback.
 	 *
-	 * @version 1.3.0
+	 * @version 1.4.0
 	 * @since   1.0.0
 	 */
 	function create_admin_page() {
-		// Set class property
-		$this->options = get_option( 'world_population_counter_options' );
+		$this->options = get_option( 'world_population_counter_options', array() );
 		?><div class="wrap">
 			<h1><?php echo __( 'World Population Counter', 'world-population-counter' ); ?></h1>
 			<form method="post" action="options.php">
 			<?php
-				// This prints out all hidden setting fields
 				settings_fields( 'world_population_counter_option_group' );
 				do_settings_sections( 'world-population-counter' );
 				submit_button();
@@ -78,32 +75,32 @@ class Alg_Settings_World_Population_Counter {
 	/**
 	 * Register and add settings.
 	 *
-	 * @version 1.3.0
+	 * @version 1.4.0
 	 * @since   1.0.0
 	 */
 	function page_init() {
 
 		register_setting(
-			'world_population_counter_option_group',                   // Option group
-			'world_population_counter_options',                        // Option name
-			array( $this, 'sanitize' )                                 // Sanitize
+			'world_population_counter_option_group',
+			'world_population_counter_options',
+			array( $this, 'sanitize' )
 		);
 
-		// Section
+		// "Settings" section
 		add_settings_section(
-			'world_population_counter_setting_section_id',             // ID
-			__( 'Settings', 'world-population-counter' ),              // Title
-			array( $this, 'print_section_info' ),                      // Callback
-			'world-population-counter'                                 // Page
+			'world_population_counter_setting_section_id',
+			__( 'Settings', 'world-population-counter' ),
+			array( $this, 'print_section_info' ),
+			'world-population-counter'
 		);
 
-		// Fields
+		// "Settings" section fields
 		add_settings_field(
-			'update_rate_seconds',                                     // ID
-			__( 'Update rate (seconds)', 'world-population-counter' ), // Title
-			array( $this, 'update_rate_seconds_callback' ),            // Callback
-			'world-population-counter',                                // Page
-			'world_population_counter_setting_section_id'              // Section
+			'update_rate_seconds',
+			__( 'Update rate (seconds)', 'world-population-counter' ),
+			array( $this, 'update_rate_seconds_callback' ),
+			'world-population-counter',
+			'world_population_counter_setting_section_id'
 		);
 		add_settings_field(
 			'script_type',
@@ -127,15 +124,48 @@ class Alg_Settings_World_Population_Counter {
 			'world_population_counter_setting_section_id'
 		);
 
+		// "Data" section
+		add_settings_section(
+			'world_population_counter_data_settings_section_id',
+			__( 'Data', 'world-population-counter' ),
+			array( $this, 'print_data_section_info' ),
+			'world-population-counter'
+		);
+
+		// "Data" section fields
+		add_settings_field(
+			'starting_time',
+			__( 'Starting time', 'world-population-counter' ),
+			array( $this, 'starting_time_callback' ),
+			'world-population-counter',
+			'world_population_counter_data_settings_section_id'
+		);
+		add_settings_field(
+			'starting_point',
+			__( 'Starting population', 'world-population-counter' ),
+			array( $this, 'starting_point_callback' ),
+			'world-population-counter',
+			'world_population_counter_data_settings_section_id'
+		);
+		add_settings_field(
+			'rate_per_second',
+			__( 'Population growth (per second)', 'world-population-counter' ),
+			array( $this, 'rate_per_second_callback' ),
+			'world-population-counter',
+			'world_population_counter_data_settings_section_id'
+		);
+
 	}
 
 	/**
 	 * Sanitize each setting field as needed.
 	 *
-	 * @version 1.1.1
+	 * @version 1.4.0
 	 * @since   1.0.0
 	 *
 	 * @param   array $input Contains all settings fields as array keys
+	 *
+	 * @todo    (dev) better sanitization functions, e.g., `starting_point`, `rate_per_second`
 	 */
 	function sanitize( $input ) {
 		$new_input = array();
@@ -156,7 +186,71 @@ class Alg_Settings_World_Population_Counter {
 			$new_input['class']               = sanitize_text_field( $input['class'] );
 		}
 
+		if ( isset( $input['starting_time'] ) ) {
+			$new_input['starting_time']       = sanitize_text_field( $input['starting_time'] );
+		}
+
+		if ( isset( $input['starting_point'] ) ) {
+			$new_input['starting_point']      = sanitize_text_field( $input['starting_point'] );
+		}
+
+		if ( isset( $input['rate_per_second'] ) ) {
+			$new_input['rate_per_second']     = sanitize_text_field( $input['rate_per_second'] );
+		}
+
 		return $new_input;
+	}
+
+	/**
+	 * print_data_section_info.
+	 *
+	 * @version 1.4.0
+	 * @since   1.4.0
+	 */
+	function print_data_section_info() {
+		echo '<p>' . esc_html__( 'Leave empty to use the default values.', 'world-population-counter' ) . '</p>';
+	}
+
+	/**
+	 * starting_time_callback.
+	 *
+	 * @version 1.4.0
+	 * @since   1.4.0
+	 */
+	function starting_time_callback() {
+		printf(
+			'<input type="date" id="starting_time" name="world_population_counter_options[starting_time]" value="%s" style="width:50%%; min-width:300px;" />' .
+			'<p class="description" id="starting_time-description">' . 'E.g.: <code>2023-11-24</code>' . '</p>',
+				isset( $this->options['starting_time'] ) ? esc_attr( $this->options['starting_time'] ) : ''
+		);
+	}
+
+	/**
+	 * starting_point_callback.
+	 *
+	 * @version 1.4.0
+	 * @since   1.4.0
+	 */
+	function starting_point_callback() {
+		printf(
+			'<input type="number" id="starting_point" name="world_population_counter_options[starting_point]" value="%s" style="width:50%%; min-width:300px;" />' .
+			'<p class="description" id="starting_point-description">' . 'E.g.: <code>8074720000</code>' . '</p>',
+				isset( $this->options['starting_point'] ) ? esc_attr( $this->options['starting_point'] ) : ''
+		);
+	}
+
+	/**
+	 * rate_per_second_callback.
+	 *
+	 * @version 1.4.0
+	 * @since   1.4.0
+	 */
+	function rate_per_second_callback() {
+		printf(
+			'<input type="number" step="0.001" id="rate_per_second" name="world_population_counter_options[rate_per_second]" value="%s" style="width:50%%; min-width:300px;" />' .
+			'<p class="description" id="rate_per_second-description">' . 'E.g.: <code>2.329</code>' . '</p>',
+				isset( $this->options['rate_per_second'] ) ? esc_attr( $this->options['rate_per_second'] ) : ''
+		);
 	}
 
 	/**

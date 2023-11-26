@@ -20,7 +20,7 @@ class Alg_Widget_World_Population_Counter extends WP_Widget {
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 *
-	 * @todo    [now] (dev) check sanitization, etc.
+	 * @todo    (dev) check sanitization, etc.
 	 */
 	function __construct() {
 		$widget_ops = array(

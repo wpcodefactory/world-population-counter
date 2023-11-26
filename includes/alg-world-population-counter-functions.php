@@ -16,6 +16,8 @@ if ( ! function_exists( 'alg_world_population_counter' ) ) {
 	 *
 	 * @version 1.1.1
 	 * @since   1.0.0
+	 *
+	 * @todo    (dev) multiple counters on the same page?
 	 */
 	function alg_world_population_counter() {
 

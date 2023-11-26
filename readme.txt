@@ -1,9 +1,9 @@
 === World Population Counter ===
-Contributors: wpcodefactory, anbinder, karzin, omardabbas, kousikmukherjeeli
+Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmukherjeeli
 Tags: world, population, counter, clock
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 1.3.2
+Stable tag: 1.4.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,8 +33,9 @@ Counter can be added via:
 
 == Changelog ==
 
-= 1.3.2 - 24/11/2023 =
-* Update changelog.
+= 1.4.0 - 26/11/2023 =
+* Dev - "Data" settings added ("Starting time", "Starting population", "Population growth").
+* Dev - Code refactoring.
 
 = 1.3.1 - 24/11/2023 =
 * Tested up to: 6.4.
